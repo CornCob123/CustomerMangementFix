@@ -1,0 +1,79 @@
+﻿<UserControl x:Class="CustomerManagementMVVM.View.CustomerView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CustomerManagementMVVM.View"
+             xmlns:viewModel="clr-namespace:CustomerManagementMVVM.ViewModel"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+
+    <UserControl.DataContext>
+        <viewModel:CustomerViewModel/>
+    </UserControl.DataContext>
+    
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="auto"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Border Grid.Column="0" Grid.Row="0" Height="35" Padding="5" Background="#4E87D4">
+            <Label VerticalAlignment="Center" Foreground="White">Customer Code</Label>
+        </Border>
+        <Border Grid.Column="1" Grid.Row="0" Height="35" Padding="5" Background="#4E87D4">
+            <TextBox Name="CustCodeTxt" Width="200" Height="40" Text ="{Binding Path = customercode, Mode = TwoWay,UpdateSourceTrigger=PropertyChanged}"></TextBox>
+        </Border>
+        <Border Grid.Column="0" Grid.Row="1" Height="35" Padding="5" Background="#4E87D4">
+            <Label VerticalAlignment="Center" Foreground="White">Name</Label>
+        </Border>
+        <Border Grid.Column="1" Grid.Row="1" Height="35" Padding="5" Background="#4E87D4">
+            <TextBox  Name="CustNameTxt" Width="200" Height="40" Text ="{Binding Path = customername, Mode = TwoWay,UpdateSourceTrigger=PropertyChanged}"></TextBox>
+        </Border>
+        <Button x:Name = "button" Content = "Save Customer" HorizontalAlignment="Left" Width="150" Height="50" Grid.Row="2" Grid.Column="0" Command="{Binding SaveCustomerCommand}"></Button>
+        <Border Grid.Column="0" Grid.Row="3" Height="35" Padding="5" Background="#000000">
+            <Label VerticalAlignment="Center" Foreground="White">Contact Code</Label>
+        </Border>
+        <Border Grid.Column="1" Grid.Row="3" Height="35" Padding="5" Background="#000000">
+            <Label VerticalAlignment="Center" Foreground="White">Name</Label>
+        </Border>
+        <ListBox Name="ID" Grid.Column="0" Grid.Row="4">
+
+
+        </ListBox>
+        <ListBox Name="Contacts" Grid.Column="1" Grid.Row="4">
+
+
+        </ListBox>
+        <Label Grid.Column="0" Grid.Row="5">Contact Code
+        </Label>
+        <Border Grid.Column="1" Grid.Row="5" Height="35" Padding="5" Background="#4E87D4">
+            <TextBox  Name="ContactCodeTxt" Width="200" Height="40" Text="{Binding contactcode, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+        </Border>
+        <Label Grid.Column="0" Grid.Row="6">Contact Name
+        </Label>
+        <Border Grid.Column="1" Grid.Row="6" Height="35" Padding="5" Background="#4E87D4">
+            <TextBox  Name="ContactNameTxt" Width="200" Height="40" Text="{Binding contactname, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+        </Border>
+        <Button x:Name = "button1" Content = "Add Contact List"  HorizontalAlignment="Left" Width="150" Height="50" Grid.Row="7" Grid.Column="0" Command="{Binding SaveContactCommand}" ></Button>
+
+        <DataGrid Height="Auto" Width="Auto" HorizontalAlignment="Left" ItemsSource="{Binding LoadCollectionData}" Margin="12,10,-32,0"   Name="McDataGrid" VerticalAlignment="Top" RowHeight="30" ColumnWidth="100" Grid.Row="8" Grid.Column="1" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding ContactCode}"/>
+                <DataGridTextColumn Header="Name" Binding="{Binding ContactName}"/>
+
+            </DataGrid.Columns>
+
+        </DataGrid>
+    </Grid>
+</UserControl>
