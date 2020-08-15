@@ -15,10 +15,10 @@ namespace CustomerManagementMVVM.ViewModel
         private ICommand _saveContactCommand = null;
         private ICommand _saveCustomerCommand = null;
 		ObservableCollection<Contact> loadcollectionData = new ObservableCollection<Contact>();
-		public int _CustCode=2;
-        public string _CustName="Jane";
-        public int _ContactCode = 3;
-        public string _ContactName = "Jean";
+		public int _CustCode=1;
+        public string _CustName="Save button saves list to database ";
+        public int _ContactCode=1 ;
+        public string _ContactName = "Enter here to add to list";
 
         public int customercode
         {
@@ -109,7 +109,7 @@ namespace CustomerManagementMVVM.ViewModel
             customers.Add(new Customer { CustomerCode = 3, CustomerName = "Hamerski" });
 
             Customers = customers;
-			loadcollectionData.Add(new Contact { ContactCode = 1, ContactName = "kel" });
+			//loadcollectionData.Add(new Contact { ContactCode = 1, ContactName = "kel" });
 
 		}
         public ICommand SaveCustomerCommand
@@ -154,10 +154,10 @@ namespace CustomerManagementMVVM.ViewModel
         
         private void SaveCustomer()
         {
-            MessageBox.Show("2ndBox", "Title");  // You would implement your Product save here
+            MessageBox.Show("No Database Setup Locally", "Title");  // You would implement your Product save here
             string me = this._CustName;
             int meNumber = this._CustCode;
-            MessageBox.Show(me, "Title");
+           // MessageBox.Show(me, "Title");
             MessageBox.Show(meNumber.ToString(), "Title");
             try
             {
@@ -176,12 +176,12 @@ namespace CustomerManagementMVVM.ViewModel
 
 
             }
-            catch (InvalidOperationException w)
+            catch (Exception e)
             {
 
-
-                // _logger.Error("OnClick", ex);
-                throw;
+				MessageBox.Show(e.Message, "Title");
+				// _logger.Error("OnClick", ex);
+				throw;
             }
         }
         

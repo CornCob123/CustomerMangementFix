@@ -65,9 +65,9 @@
         <Border Grid.Column="1" Grid.Row="6" Height="35" Padding="5" Background="#4E87D4">
             <TextBox  Name="ContactNameTxt" Width="200" Height="40" Text="{Binding contactname, UpdateSourceTrigger=PropertyChanged}"></TextBox>
         </Border>
-        <Button x:Name = "button1" Content = "Add Contact List"  HorizontalAlignment="Left" Width="150" Height="50" Grid.Row="7" Grid.Column="0" Command="{Binding SaveContactCommand}" ></Button>
+        <Button x:Name = "button1" Content = "Add to Contact List"  HorizontalAlignment="Left" Width="150" Height="50" Grid.Row="7" Grid.Column="0" Command="{Binding SaveContactCommand}" ></Button>
 
-        <DataGrid Height="Auto" Width="Auto" HorizontalAlignment="Left" ItemsSource="{Binding LoadCollectionData}" Margin="12,10,-32,0"   Name="McDataGrid" VerticalAlignment="Top" RowHeight="30" ColumnWidth="100" Grid.Row="8" Grid.Column="1" AutoGenerateColumns="False">
+        <DataGrid Height="Auto" Width="Auto" HorizontalAlignment="Left" ItemsSource="{Binding LoadCollectionData}" Margin="12,10,-32,0"   Name="McDataGrid" VerticalAlignment="Top" RowHeight="30" ColumnWidth="100" Grid.Row="8" Grid.Column="0" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Binding="{Binding ContactCode}"/>
                 <DataGridTextColumn Header="Name" Binding="{Binding ContactName}"/>
