@@ -88,6 +88,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CustomerManagementDB.edmx</DependentUpon>
     </Compile>
+    <Compile Include="CustomerManagementDBEntites.cs" />
     <Compile Include="Model1.cs" />
     <Compile Include="Model\RelayCommand.cs" />
     <Compile Include="ObservableObject.cs" />
